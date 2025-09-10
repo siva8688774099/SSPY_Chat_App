@@ -1,0 +1,100 @@
+{% include "base.html" %}
+{% block title %}
+<title>Chat Application</title>
+{% endblock %}
+<head>
+    <link rel="stylesheet" href="/static/css/chat_app.css">
+</head>
+<body>
+    <div class="toast">
+		Websocket connected Successfully!
+	</div>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <div class="main-div">
+        <div class="users-div">
+        <div style="background-color: rgb(98 58 174);
+                    width: 100%;
+                    height: 52px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 13px;">
+            <h1 style="text-align: center;color:#eab7b7">Contacts</h1>
+        </div>
+        <button id="addContactBtn" style="width: 100%; margin-top: 5px;">Add New Contact</button>
+        <div class="contactsList" id="contactsList">
+            {% for contact in contacts %}
+                <div class="user" style="margin-top:5px;border-radius:10px;" data-user-id="{{ contact.contact_id }}" data-username="{{ contact.username }}" onclick="handleUserClick(this)">
+                    <p class="contact-username" style="text-align: -webkit-center;
+                    padding: 5px;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 25px;">
+                    {{ contact.username }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% if not contacts %}
+            <p style="text-align:center; margin-top:20px;">No Contacts Available.</p>
+        {% endif %}
+        </div>
+        <div class="chat-container">
+            <div class="top-user-div">
+                <p class="username" style=" font-size: 30px;
+                margin: auto;
+                text-align: -webkit-center;
+                color: #ffffff;"></p>
+            </div>
+            <div class="chat-div">
+                {% for chat in chat_data.data %}
+                    <div class="chat-message">
+                        <p>{{chat.textcontent}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div style="display: flex;padding: 10px;justify-content:bottom;">
+                <div style="position:relative; flex: 1;">
+                <div id="file-preview" style="margin-top:10px;"></div>
+                <input type="file" id="chat-file-input" style="display:none;" onchange="showFileNameInInput(this)">
+                    <input type="text" id="chat-text-input" placeholder="Type a message..." style="width: 100%;
+                           padding-right: 40px; /* Space for the button */
+                           height: 30px;
+                           padding-left: 10px;
+                           border: 1px solid #ccc;
+                           border-radius: 20px;">
+                    <button onclick="document.getElementById('chat-file-input').click();"       style="position: absolute;top: 50%;
+                           right: 5px;
+                           transform: translateY(-50%);
+                           background: none;
+                           border: none;
+                           cursor: pointer;">
+                    📎
+                    </button>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:10px;margin-right:50px;cursor: pointer;" onclick="sendMessage()" width="25" cursor height="25" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg>
+            </div>
+        </div>
+    </div>
+    <div class="popup-container" id="popup-container">
+        <div class="modal-content">
+            <h2>Popup Form</h2>
+            <form id="addContactForm">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="mobile" placeholder="Mobile" required>
+                <button type="submit">Submit</button>
+                <button type="button" class="close-btn" id="closeModalBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <script>
+    var currentUserId = {{ current_user_id }};
+    var currentUserEmail = `{{ current_user_email }}`;
+    var currentUserMobile = `{{ current_user_mobile }}`;
+    </script>
+    <script src="/static/js/add_contact_popup.js"></script>
+    {% load static %}
+</body>

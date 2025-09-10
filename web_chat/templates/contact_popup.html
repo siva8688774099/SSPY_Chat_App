@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup Form Example</title>
+    <style>
+        /* Modal styles */
+        .modal-content {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            min-width: 300px;
+            box-shadow: 0 2px 10px #0002;
+        }
+        .modal-content input, .modal-content button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+        .close-btn {
+            background: #f44336;
+            color: #fff;
+            border: none;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <h2>Popup Form</h2>
+            <form id="addContactForm">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="mobile" placeholder="Mobile" required>
+                <button type="submit">Submit</button>
+                <button type="button" class="close-btn" id="closeModalBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

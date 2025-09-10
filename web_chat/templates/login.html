@@ -1,0 +1,59 @@
+{% include "base.html" %}
+{% block title %}
+<title>SSPJ Login Page</title>
+{% endblock %}
+<body>
+	<div class="login-div shadow">
+		<h1 style="text-align: center;background:linear-gradient(to right, #82a2eb, #c9646b);;-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Sign In</h1>
+		<p style="text-align:center;margin-top:-7px;font-size:20px;background:linear-gradient(to right, #82a2eb, #c9646b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Login here to Dashboard</p>
+		<div align="center">
+			<form method="POST"  action="{% url 'login_user' %}?next={{ request.GET.next }}">
+				{% csrf_token %}
+				<input style="height:35px;width:300px;margin-top:5px;margin-bottom:10px;" type="text" name="username" id="username" placeholder="username">
+				<br>
+				<input style="height:35px;width:300px;margin-top:5px;" type="password" name="password" id="password" placeholder="password">
+				<br>
+				<button type="submit" class="mt-2" style="background:linear-gradient(to right, #82c1eb, #c9646b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;border:none">Click Login</button>
+				<br>
+			</form>
+			<div class="d-flex justify-content-between" style="width:300px;margin-top:10px;">
+				<div><a href="{% url 'register' %}" style="text-decoration:none;background:linear-gradient(to right, #82a2eb, #c9646b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:100px;">Sign Up</a></div>
+				<div><a href="{% url 'password_reset' %}" style="text-decoration:none;background:linear-gradient(to right, #82a2eb, #c9646b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:100;margin-top:100px;">forgot password?</a></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<style>
+html{
+	padding: 25px;
+}
+body{
+	font-family: Arial, sans-serif;
+	background: linear-gradient(to right, #5589d7, #c96464);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 92vh;
+	border: 1px solid rgb(122, 119, 119);
+}
+.login-div{
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(to bottom, #bfcbdc, #c1c1e9);
+	border-radius: 5px;
+	background-color: white;
+	padding: 25px;
+	transition: padding 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add this line */
+}
+.login-div:hover{
+	box-shadow: 0 20px 16px rgba(0,0,0,0.25); /* x-offset, y-offset, blur, color */
+	padding:30px;
+}
+input{
+	background: transparent;
+	border: 1px solid rgb(174 159 72);
+	border-radius: 10px;
+	outline: none;
+}
+</style>
