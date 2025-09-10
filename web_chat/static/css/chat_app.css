@@ -1,0 +1,135 @@
+body {
+	display: flex;
+	height: 100vh;
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+.main-div {
+	display: flex;
+	flex: 1;
+}
+
+.users-div {
+	width: 20%;
+	background-color: #f0f0f0;
+	padding: 10px;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.top-user-div {
+	height: 10%;
+	background-color: #101010;
+	padding: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-div {
+	flex: 1;
+	background-color: #fff;
+	padding: 0px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	/* Align items at the bottom */
+}
+
+.toast {
+	position: fixed;
+	height: 65px;
+	width: 22%;
+	top: 20px;
+	right: 20px;
+	z-index: 1050;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #28a745;
+	color: white;
+	font-size: 16px;
+}
+
+.chat-message {
+	background-color: #f1f1f1;
+	border: 1px solid #252323;
+	padding: 10px;
+	margin: 5px;
+	max-width: 60%;
+	word-wrap: break-word;
+	border-radius: 10px;
+	max-width: 500px;
+}
+
+.chat-message.sent {
+	align-self: flex-end;
+	background-color: #dcf8c6;
+	text-align: right;
+}
+
+.chat-message.received {
+	align-self: flex-start;
+	background-color: #f1f1f1;
+	text-align: left;
+}
+
+.user {
+	flex-direction: column;
+	border: 1px solid #252323;
+	height: 53px;
+	padding: 0px;
+	cursor: pointer;
+	background-color: #7786b0;
+}
+
+.user p {
+	white-space: nowrap;
+	/* Prevents text wrapping to new line */
+	overflow: hidden;
+	/* Hides overflow text */
+	text-overflow: ellipsis;
+	/* Shows "..." at the end */
+	width: 100%;
+	/* Ensures it takes full width */
+}
+
+.popup-container {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	background: #fff;
+	padding: 30px 20px;
+	border-radius: 8px;
+	min-width: 300px;
+	box-shadow: 0 2px 10px #0002;
+}
+
+.modal-content input,
+.modal-content button {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 8px;
+}
+
+.close-btn {
+	background: #f44336;
+	color: #fff;
+	border: none;
+	margin-top: 0;
+}
