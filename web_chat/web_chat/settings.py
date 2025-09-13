@@ -87,8 +87,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "django_chat",
         "USER": "postgres",
-        "PASSWORD": "AMkk7UhQNANfNNzwUmQV",
-        "HOST": "djangochat.cjeoe2muqsa7.eu-north-1.rds.amazonaws.com",  # Set to 'localhost' if the database is on the same machine
+        "PASSWORD": "1BYe89aI3tzmfckbubFZ",
+        "HOST": "djangochat-mumbai.c3iqesi8wc89.ap-south-1.rds.amazonaws.com",  # Set to 'localhost' if the database is on the same machine
         "PORT": "5432",  # Set to '' for default
     }
 }
