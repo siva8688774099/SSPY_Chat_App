@@ -10,7 +10,7 @@ RUN pip install --upgrade pip --trusted-host=pypi.org --trusted-host=files.pytho
 RUN pip install --upgrade awscli --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
 
 # Install Python dependencies
-COPY ./requirements.txt .
+COPY web_chat/requirements.txt .
 RUN pip3 install -r requirements.txt --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
 
 # Copy application files
