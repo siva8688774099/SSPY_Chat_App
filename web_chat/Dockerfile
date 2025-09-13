@@ -14,7 +14,7 @@ COPY web_chat/requirements.txt .
 RUN pip3 install -r requirements.txt --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
 
 # Copy application files
-COPY web_chat /app
+COPY ./web_chat /app
 
 # Set the working directory
 WORKDIR /app
