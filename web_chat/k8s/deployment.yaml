@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sspj-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sspj-app
+  template:
+    metadata:
+      labels:
+        app: sspj-app
+    spec:
+      containers:
+        - name: sspj-app
+          image: 527173011776.dkr.ecr.ap-south-1.amazonaws.com/djangochat_sspj:latest
+          ports:
+            - containerPort: 8000
