@@ -15,5 +15,12 @@ spec:
       containers:
         - name: sspj-app
           image: 527173011776.dkr.ecr.ap-south-1.amazonaws.com/djangochat_sspj:latest
+          resources:
+            requests:
+              memory: "350Mi"
+              cpu: "250m"
+            limits:
+              memory: "350Mi"
+              cpu: "250m"
           ports:
             - containerPort: 8000
