@@ -39,3 +39,6 @@ jobs:
         kubectl apply -f k8s/deployment.yaml
         kubectl apply -f k8s/service.yaml
 
+    - name: Apply Ingress
+      run: kubectl apply -f k8s/ingress.yaml --namespace=sspj-app-service
+
