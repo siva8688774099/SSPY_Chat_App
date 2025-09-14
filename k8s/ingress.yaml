@@ -4,7 +4,8 @@ metadata:
   name: sspj-app-ingress
   namespace: sspj-app-service
   annotations:
-    kubernetes.io/ingress.class: "nginx"  # Use "alb" if using AWS ALB Ingress Controller
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
 spec:
   rules:
     - host: sspj.com  # Replace with your domain or remove for all hosts
