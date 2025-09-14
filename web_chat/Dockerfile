@@ -10,7 +10,7 @@ RUN pip install --upgrade pip --trusted-host=pypi.org --trusted-host=files.pytho
 RUN pip install --upgrade awscli --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
 
 RUN apt-get update && \
-	apt-get install -y iputils-ping dnsutils curl netcat && \
+	apt-get install -y iputils-ping dnsutils && \
 	rm -rf /var/lib/apt/lists/*
 # Install Python dependencies
 COPY web_chat/requirements.txt .
