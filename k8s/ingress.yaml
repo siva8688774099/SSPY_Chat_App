@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
 spec:
   rules:
-    - host: sspj.com  # Replace with your domain or remove for all hosts
+    - host: django-chat.sspj.com  # Replace with your domain or remove for all hosts
       http:
         paths:
           - path: /
