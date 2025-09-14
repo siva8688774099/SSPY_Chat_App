@@ -9,12 +9,9 @@ RUN apt-get update && apt-get install -y tzdata && \
 RUN pip install --upgrade pip --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
 RUN pip install --upgrade awscli --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
 
-RUN apt-get update && apt-get install -y \
-	iputils-ping \
-	dnsutils \
-	curl \
-	netcat \
-	&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+	apt-get install -y iputils-ping dnsutils curl netcat && \
+	rm -rf /var/lib/apt/lists/*
 # Install Python dependencies
 COPY web_chat/requirements.txt .
 RUN pip3 install -r requirements.txt --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
