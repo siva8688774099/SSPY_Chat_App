@@ -12,6 +12,11 @@ spec:
       labels:
         app: sspj-app
     spec:
+      tolerations:
+        - key: "eks.amazonaws.com/compute-type"
+          operator: "Equal"
+          value: "fargate"
+          effect: "NoSchedule"
       containers:
         - name: sspj-app
           image: 527173011776.dkr.ecr.ap-south-1.amazonaws.com/djangochat_sspj:latest
